@@ -5,32 +5,25 @@ class Day2 : AdventDay("Day2") {
         // for this puzzle all input is on a single line
         val line = input[0]
         val ranges = line.split(",")
-        var sum: BigInteger = BigInteger.ZERO
+        var sum = 0L
 
         for (range in ranges) {
             val (startStr, endStr) = range.split("-")
+            val start = startStr.toLong()
+            val end = endStr.toLong()
 
-            println("$startStr - $endStr")
+            for (id in start..end) {
+                val idString = id.toString()
 
-            val start = startStr.toBigInteger()
-            val end = endStr.toBigInteger()
+                if (idString.length % 2 == 0) {
+                    val firstHalf = idString.take(idString.length / 2)
+                    val secondHalf = idString.takeLast(idString.length / 2)
 
-            generateSequence (start) { it + BigInteger.ONE }
-                .takeWhile{ it <= end }
-                .forEach {
-                    id ->
-                    val idString = id.toString()
-
-                    if (idString.length % 2 == 0) {
-                        val firstHalf = idString.take(idString.length / 2)
-                        val secondHalf = idString.takeLast(idString.length / 2)
-
-                        if (firstHalf == secondHalf) {
-                            sum += id
-                        }
+                    if (firstHalf == secondHalf) {
+                        sum += id
                     }
-
                 }
+            }
         }
 
         return "$sum"

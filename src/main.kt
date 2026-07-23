@@ -11,8 +11,9 @@ fun runDay(day: AdventDay) {
 
 fun main() {
     val days = listOf(
-        //Day1(),
+        Day1(),
         Day2(),
+        Day3(),
     )
 
     days.forEach{runDay(it)}
