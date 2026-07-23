@@ -8,6 +8,10 @@ sourceSets {
     }
 }
 
+kotlin {
+    jvmToolchain(24)
+}
+
 tasks {
     wrapper {
         gradleVersion = "9.2.1"
