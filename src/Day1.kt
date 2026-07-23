@@ -1,4 +1,4 @@
-class Day1 : AdventDay("Day01") {
+class Day1 : AdventDay("Day1") {
     override fun part1(): String {
         // NOTE: this function is nexted in here even though it's a little gross
         // simply because I solved this problem before I developed the AdventDay
